@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Unity Projects\Bomberman" t="IncludeRecursive">
+    <e p="C:\Unity Projects\Bomberman\Bomberman" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
@@ -15,6 +15,6 @@
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
     <e p="C:\Users\smyde\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\smyde\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Bomberman.-2041682564.00" t="ExcludeRecursive" />
+    <e p="C:\Users\smyde\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Bomberman.-1903761653.00" t="ExcludeRecursive" />
   </component>
 </project>
