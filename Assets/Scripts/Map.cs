@@ -11,8 +11,8 @@ public class Map : MonoBehaviour
    private int?[,] _blocks;
    public int mapSizeX;
    public int mapSizeZ;
-   
-   
+
+
    private void Awake()
    {
       mapSizeX = 21;
@@ -39,7 +39,7 @@ public class Map : MonoBehaviour
          }
       }
 
-     for (int x = 1; x < mapSizeX-1; x+=2)
+     for (int x = 1; x < mapSizeX-1; x+=2) // Kirilamaz duvarlar
      {
         for (int z = 1; z < mapSizeZ-1; z+=2)
         {
@@ -53,7 +53,7 @@ public class Map : MonoBehaviour
         for (int z = 0; z < mapSizeZ; z++)
         {
            temp = UnityEngine.Random.Range(0, 4);
-           if (_blocks[x,z] == null)
+           if (_blocks[x,z] == null) // Eger kirilabilir duavarlarin gelecegi yerler bos ise
            {
               
               if (temp>1)
@@ -71,6 +71,22 @@ public class Map : MonoBehaviour
            }
         }
      }
+     
+     //Yardirma yontemi ile karakterlerin spawnpointlerinin gelecegi yerlerin bosaltilmasi
+     _blocks[1,20] = null;
+     _blocks[0,20] = null;
+     _blocks[0,19] = null;
+     _blocks[0,1] = null;
+     _blocks[0,0] = null;
+     _blocks[1,0] = null;
+     _blocks[19,0] = null;
+     _blocks[20,0] = null;
+     _blocks[20,1] = null;
+     _blocks[20,19] = null;
+     _blocks[20,20] = null;
+     _blocks[19,20] = null;
+
+    
    }
    
    void GenerateMap()
@@ -81,7 +97,8 @@ public class Map : MonoBehaviour
          for (int z = 0; z < mapSizeZ; z++)
          {
             TileBlock tb = tileBlocks[_groundBlocks[x,z]];
-            Instantiate(tb.blockPrefab, new Vector3(x, 0, z), Quaternion.identity);
+            GameObject go = Instantiate(tb.blockPrefab, new Vector3(x, 0, z), Quaternion.identity);
+            go.transform.parent = gameObject.transform;
          }
       }
 
@@ -95,6 +112,7 @@ public class Map : MonoBehaviour
             {
                TileBlock tb = tileBlocks[(int)_blocks.GetValue(x,z)];
                GameObject go = Instantiate(tb.blockPrefab, new Vector3(x, 1, z), Quaternion.identity);
+               go.transform.parent = gameObject.transform;
             }
             else
             {
@@ -102,6 +120,7 @@ public class Map : MonoBehaviour
             }
          }
       }
+    
    }
 
   
