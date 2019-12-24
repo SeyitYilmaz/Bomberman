@@ -30,7 +30,7 @@ public class Map : MonoBehaviour
       //Zeminin belirlenmesi
       _groundBlocks = new int[mapSizeX,mapSizeZ];
       _blocks = new int?[mapSizeX,mapSizeZ];
-      
+
       for (int x = 0; x < mapSizeX; x++)
       {
          for (int z = 0; z < mapSizeZ; z++)
@@ -117,6 +117,23 @@ public class Map : MonoBehaviour
             else
             {
                continue;
+            }
+         }
+      }
+
+      
+      //Kenar duvarlarini olusturma
+      for (int x = -1; x < mapSizeX+1; x++)
+      {
+         for (int z = -1; z < mapSizeZ+1; z++)
+         {
+            if (x == -1 || z == -1 || x == mapSizeX || z == mapSizeZ)
+            {
+               TileBlock tb = tileBlocks[3];
+               GameObject go = Instantiate(tb.blockPrefab, new Vector3(x, 0, z), Quaternion.identity);
+               go.transform.parent = gameObject.transform;
+               GameObject obj = Instantiate(tb.blockPrefab, new Vector3(x, 1, z), Quaternion.identity);
+               obj.transform.parent = gameObject.transform;
             }
          }
       }

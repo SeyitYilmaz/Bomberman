@@ -4,8 +4,16 @@
     <e p="C:\Unity Projects\Bomberman\Bomberman" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="JKT_ART" t="Include">
+          <e p="etc" t="Include">
+            <e p="MatCap.shader" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Map.cs" t="Include" />
+          <e p="Player Script" t="Include">
+            <e p="PlayerController.cs" t="Include" />
+          </e>
           <e p="Spawner.cs" t="Include" />
           <e p="TileBlock.cs" t="Include" />
         </e>

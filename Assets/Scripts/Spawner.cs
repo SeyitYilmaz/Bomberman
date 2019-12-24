@@ -19,8 +19,10 @@ public class Spawner : MonoBehaviour
         _positions = new[] //Oyuncularin spawn noktalari-->
             {new Vector3(0, 1, 0), new Vector3(20, 1, 20), new Vector3(20, 1, 0), new Vector3(0, 1, 20)};//<--
         
-        for (int i = 0; i < _positions.Length; i++) // Oyunculari haritaya ekleme
+        
+        for (int i = 0; i <1; i++) // Oyunculari haritaya ekleme 
         {
+            //TODO: _positions.Lengthe kadar olarak ekle
             GameObject go = Instantiate(player, new Vector3(0,0,0), Quaternion.identity);
             go.transform.position = _positions[i];
         }
