@@ -7,12 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     private Vector3 moveDirection;
-    private CharacterController controller;
+
+    private Rigidbody rgPlayer;
+    //private CharacterController controller;
     private Animator anim;
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
+        rgPlayer = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
 
@@ -22,7 +25,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         Move();
     }
@@ -40,11 +43,18 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            controller.Move(new Vector3(0f, 0f, 0f));
         }
+        
         moveDirection = new Vector3Int((int)(x * moveSpeed),0,(int)(z*moveSpeed));
-        moveDirection.y += Physics.gravity.y;//Yer cekimi
-        controller.Move(moveDirection*Time.deltaTime);
+        rgPlayer.velocity = moveDirection;
+        if (Input.GetKeyUp("up") || Input.GetKeyUp("down") || Input.GetKeyUp("left") || Input.GetKeyUp("right"))
+        {
+            //controller.Move(new Vector3(0f, 0f, 0f));
+            rgPlayer.velocity = Vector3.zero;
+        }
+        transform.LookAt(transform.position+ new Vector3(moveDirection.x,0,moveDirection.z));
+        //moveDirection.y += Physics.gravity.y;//Yer cekimi
+        //controller.Move(moveDirection*Time.deltaTime);
         anim.SetFloat("Speed",Math.Abs(x)+Math.Abs(z));
         
     }
