@@ -45,7 +45,8 @@ public class PlayerController : MonoBehaviour
         {
         }
         
-        moveDirection = new Vector3Int((int)(x * moveSpeed),0,(int)(z*moveSpeed));
+        //moveDirection = new Vector3Int((int)(x * moveSpeed),0,(int)(z*moveSpeed));
+        moveDirection = new Vector3Int(Mathf.RoundToInt(x*moveSpeed),0,Mathf.RoundToInt(z*moveSpeed));
         rgPlayer.velocity = moveDirection;
         if (Input.GetKeyUp("up") || Input.GetKeyUp("down") || Input.GetKeyUp("left") || Input.GetKeyUp("right"))
         {

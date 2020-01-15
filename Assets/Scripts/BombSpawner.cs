@@ -22,7 +22,9 @@ public class BombSpawner : MonoBehaviour
    {
       if (Input.GetKeyDown(KeyCode.Space))
       {
-         Instantiate(bomb, bombSpawnPosition.transform.position, Quaternion.identity);
+         Instantiate(bomb, new Vector3(Mathf.RoundToInt(bombSpawnPosition.transform.position.x),
+            Mathf.RoundToInt(bombSpawnPosition.transform.position.y),
+            Mathf.RoundToInt(bombSpawnPosition.transform.position.z)), Quaternion.identity);
       }
    }
 }
