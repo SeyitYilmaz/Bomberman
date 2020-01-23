@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7709891307712822147}
   m_Layer: 11
   m_Name: groundBlock
-  m_TagString: Untagged
+  m_TagString: uWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
