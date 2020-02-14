@@ -11,12 +11,14 @@ public abstract class Character : MonoBehaviour
     [SerializeField]
     protected int heartCount;
     [SerializeField]
-    protected int startingBombCount;
-    protected int startingBoostCount;
-    protected int startingHeartCount;
-    
-    private GameObject character;
+    protected int startingBombCount = 1;
+    protected int startingBoostCount = 2;
+    protected int startingHeartCount = 0;
+    protected int maxBombCount = 4;
+    protected int maxBoostCount = 5;
+    protected int maxHeartCount = 3;
 
+    private GameObject character;
     private void Awake()
     {
         bombCount = startingBombCount;
@@ -24,9 +26,9 @@ public abstract class Character : MonoBehaviour
         heartCount = startingHeartCount;
     }
 
+
     public abstract void Die();
     public abstract void TakeDamage(int amount);
-    public abstract void TakeBooster();
 
 }
     

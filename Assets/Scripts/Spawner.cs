@@ -22,6 +22,7 @@ public class Spawner : MonoBehaviour
         
         for (int i = 0; i <1; i++) // Oyunculari haritaya ekleme 
         {
+            //TODO: Diğer oyuncuları burada spawn edeceksin
             //TODO: _positions.Lengthe kadar olarak ekle
             GameObject go = Instantiate(player, new Vector3(0,0,0), Quaternion.identity);
             go.transform.position = _positions[i];
