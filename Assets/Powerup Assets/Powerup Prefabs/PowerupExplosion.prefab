@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 33000010412949844}
   - component: {fileID: 23000013503467608}
   - component: {fileID: 1348996696031934698}
+  - component: {fileID: 2966657925978350579}
   m_Layer: 0
   m_Name: PowerupExplosion
-  m_TagString: Untagged
+  m_TagString: PowerupExplosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,3 +92,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.9
   m_Center: {x: -0.00000023841858, y: -0.00041776904, z: 0.11784127}
+--- !u!114 &2966657925978350579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010986879176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21631b202981f84992f607308c507c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

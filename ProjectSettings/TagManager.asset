@@ -9,6 +9,10 @@ TagManager:
   - uWall
   - dWall
   - GameManager
+  - PowerupHeart
+  - PowerupSpeed
+  - PowerupBomb
+  - PowerupExplosion
   layers:
   - Default
   - TransparentFX

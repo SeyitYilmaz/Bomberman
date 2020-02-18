@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 33000014097340908}
   - component: {fileID: 23000012539122088}
   - component: {fileID: 2165136153354178048}
-  - component: {fileID: -796053505955830796}
+  - component: {fileID: 7793893039565199710}
   m_Layer: 0
   m_Name: PowerupHeart
-  m_TagString: Untagged
+  m_TagString: PowerupHeart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.9
   m_Center: {x: 0.0014882088, y: -0.0025726787, z: -0.046597403}
---- !u!114 &-796053505955830796
+--- !u!114 &7793893039565199710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,6 +101,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010714891294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9bb48026d2e88a429e79640e9dbdd72, type: 3}
+  m_Script: {fileID: 11500000, guid: afe91a2d77ec5f24895468e593632109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

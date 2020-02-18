@@ -16,15 +16,15 @@ public class Powerup : MonoBehaviour //ScriptableObject
         rndNum = Random.Range(0, 10);
         if (rndNum == 3)
         {
-            GameObject go = Instantiate(powerups[0],location, Quaternion.identity);
+            GameObject go = Instantiate(powerups[0],location, Quaternion.Euler(-90,0,0));
         }
         else if (rndNum == 2)
         {
-            GameObject go = Instantiate(powerups[1], location, Quaternion.identity);
+            GameObject go = Instantiate(powerups[1], location, Quaternion.Euler(-90, 0, 0));
         }
         else if (rndNum == 8)
         {
-            GameObject go = Instantiate(powerups[2], location, Quaternion.identity);
+            GameObject go = Instantiate(powerups[2], location, Quaternion.Euler(-90, 0, 0));
 
         }
         else

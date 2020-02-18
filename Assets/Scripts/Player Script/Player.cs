@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Player : Character
 {
-    public GameObject playerGO;
-    void Start()
+    private GameObject playerGO;
+    private void Awake()
     {
-        
-    }
-    void Update()
-    {
-        
+        playerGO = gameObject; 
     }
 
     public override void Die()
@@ -27,19 +23,35 @@ public class Player : Character
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+   /* private void OnCollisionEnter(Collision collision)
     {
         // 0 : Heart
         // 1 : Explosion
         // 2 : Bomb
         // 3 : Speed
-        if (collision.gameObject.CompareTag("HeartBooster"))
+        if (collision.gameObject.CompareTag("PowerupHeart"))
         {
-            CollectPowerUp(0);
+            CollectPowerUp(0); 
+            collision.gameObject.SetActive(false);
         }
-    }
-
-    private void CollectPowerUp(int index)
+        if (collision.gameObject.CompareTag("PowerupExplosion"))
+        {
+            CollectPowerUp(1);
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("PowerupBomb"))
+        {
+            CollectPowerUp(2);
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("PowerupSpeed"))
+        {
+            CollectPowerUp(3);
+            collision.gameObject.SetActive(false);
+        }
+    }*/
+  
+    public void CollectPowerUp(int index)
     {
         if (index == 0)
         {
