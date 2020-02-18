@@ -5,9 +5,12 @@ using UnityEngine;
 public class Player : Character
 {
     private GameObject playerGO;
+    private float maxSpeed = 18f;
+    PlayerController playercon;
     private void Awake()
     {
-        playerGO = gameObject; 
+        playerGO = gameObject;
+        playercon = GetComponent<PlayerController>();
     }
 
     public override void Die()
@@ -21,36 +24,7 @@ public class Player : Character
     public override void TakeDamage(int amount)
     {
 
-    }
-
-   /* private void OnCollisionEnter(Collision collision)
-    {
-        // 0 : Heart
-        // 1 : Explosion
-        // 2 : Bomb
-        // 3 : Speed
-        if (collision.gameObject.CompareTag("PowerupHeart"))
-        {
-            CollectPowerUp(0); 
-            collision.gameObject.SetActive(false);
-        }
-        if (collision.gameObject.CompareTag("PowerupExplosion"))
-        {
-            CollectPowerUp(1);
-            collision.gameObject.SetActive(false);
-        }
-        if (collision.gameObject.CompareTag("PowerupBomb"))
-        {
-            CollectPowerUp(2);
-            collision.gameObject.SetActive(false);
-        }
-        if (collision.gameObject.CompareTag("PowerupSpeed"))
-        {
-            CollectPowerUp(3);
-            collision.gameObject.SetActive(false);
-        }
-    }*/
-  
+    } 
     public void CollectPowerUp(int index)
     {
         if (index == 0)
@@ -65,6 +39,10 @@ public class Player : Character
         {
             bombCount++;
         }
+        else if(index == 3)
+        {
+            playercon.moveSpeed = playercon.moveSpeed + 2;
+        }
 
         if (heartCount > maxHeartCount)
         {
@@ -77,6 +55,10 @@ public class Player : Character
         if (boostCount > maxBoostCount)
         {
             boostCount = maxBoostCount;
+        }
+        if (playercon.moveSpeed > maxSpeed)
+        {
+            playercon.moveSpeed = maxSpeed;
         }
     }
 }
