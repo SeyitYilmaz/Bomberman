@@ -10,9 +10,11 @@ public class Bomb : MonoBehaviour
     public LayerMask layermask;
     private Powerup p;
     public LayerMask breakableWallMask;
+    private Player player;
 
     private void Awake()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
         p = GameObject.FindWithTag("GameManager").GetComponent<Powerup>();
     }
     private void Start()
@@ -26,7 +28,7 @@ public class Bomb : MonoBehaviour
     IEnumerator Explode(Vector3 direction)
     {
         yield return new WaitForSeconds(2f);
-        for (int i = 0; i < explosionValue; i++)
+        for (int i = 0; i < player.boostCount; i++)
         {
             RaycastHit hit;
             
@@ -45,22 +47,10 @@ public class Bomb : MonoBehaviour
             else if (hit.collider.transform.gameObject.CompareTag("dWall"))
             {
                hit.collider.gameObject.SetActive(false);
-
                p.DropPowerup(hit.collider.gameObject.transform.position);
-               //Destroy(hit.collider.gameObject);
-            }
-            /* Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0), direction, out hit, i, layermask);
- 
-             if (!hit.collider)
-             {
-                 GameObject explosion = Instantiate(explosionEffect, transform.position+ i*direction, Quaternion.identity);
-                 Destroy(gameObject);
-                 Destroy(explosion,0.5f);
-             }
-             else
-             {
-                 break;
-             }*/
+                break;
+
+            }      
         }
         
        

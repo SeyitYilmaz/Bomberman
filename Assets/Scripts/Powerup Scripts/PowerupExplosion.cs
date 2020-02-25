@@ -11,6 +11,7 @@ public class PowerupExplosion : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);
+            player.boostCount += 1;
         }
     }
 }

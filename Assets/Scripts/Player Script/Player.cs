@@ -11,6 +11,9 @@ public class Player : Character
     public float playerMoveSpeed;
     private void Awake()
     {
+        bombCount = startingBombCount;
+        boostCount = startingBoostCount;
+        heartCount = startingHeartCount;
         playerMoveSpeed = 10f;
         playerGO = gameObject;
     }
