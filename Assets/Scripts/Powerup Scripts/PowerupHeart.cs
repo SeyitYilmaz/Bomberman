@@ -8,11 +8,10 @@ public class PowerupHeart : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         player = other.gameObject.GetComponent<Player>();
-        player.CollectPowerUp(0);
         if (other.gameObject.CompareTag("Player"))
-        {
-            player.CollectPowerUp(0);
+        {    
             gameObject.SetActive(false);
+            player.heartCount++;
         }
     }
 }

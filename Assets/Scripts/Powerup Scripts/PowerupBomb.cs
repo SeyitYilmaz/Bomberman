@@ -8,10 +8,10 @@ public class PowerupBomb : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         player = other.gameObject.GetComponent<Player>();
-        player.CollectPowerUp(2);
         if (other.gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);
+            player.bombCount++;
         }
     }
 }

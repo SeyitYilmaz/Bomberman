@@ -7,13 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     private Vector3 moveDirection;
-
+    private Player player;
     private Rigidbody rgPlayer;
     //private CharacterController controller;
     private Animator anim;
 
     private void Awake()
     {
+        player = GetComponent<Player>();
         //controller = GetComponent<CharacterController>();
         rgPlayer = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        moveSpeed = 10f;
+        moveSpeed = player.playerMoveSpeed;
         anim = GetComponent<Animator>();
     }
 

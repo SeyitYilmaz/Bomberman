@@ -5,45 +5,22 @@ using UnityEngine;
 public class Player : Character
 {
     private GameObject playerGO;
-    private float maxSpeed = 18f;
-    PlayerController playercon;
+    public int bombCount;
+    public int boostCount;
+    public int heartCount;
+    public float playerMoveSpeed;
     private void Awake()
     {
+        playerMoveSpeed = 10f;
         playerGO = gameObject;
-        playercon = GetComponent<PlayerController>();
+    }
+    private void Update()
+    {
+        CountControl();
     }
 
-    public override void Die()
+    public override void CountControl()
     {
-        if (heartCount < 0)
-        {
-            playerGO.SetActive(false);
-            heartCount = startingHeartCount;
-        }
-    }
-    public override void TakeDamage(int amount)
-    {
-
-    } 
-    public void CollectPowerUp(int index)
-    {
-        if (index == 0)
-        {
-            heartCount++;
-        }
-        else if(index == 1)
-        {
-            boostCount++;
-        }
-        else if (index == 2)
-        {
-            bombCount++;
-        }
-        else if(index == 3)
-        {
-            playercon.moveSpeed = playercon.moveSpeed + 2;
-        }
-
         if (heartCount > maxHeartCount)
         {
             heartCount = maxHeartCount;
@@ -56,9 +33,22 @@ public class Player : Character
         {
             boostCount = maxBoostCount;
         }
-        if (playercon.moveSpeed > maxSpeed)
+        if (playerMoveSpeed > maxSpeed)
         {
-            playercon.moveSpeed = maxSpeed;
+            playerMoveSpeed = maxSpeed;
         }
     }
+    public override void Die()
+    {
+        if (heartCount < 0)
+        {
+            playerGO.SetActive(false);
+            heartCount = startingHeartCount;
+        }
+    }
+    public override void TakeDamage(int amount)
+    {
+
+    } 
+    
 }
