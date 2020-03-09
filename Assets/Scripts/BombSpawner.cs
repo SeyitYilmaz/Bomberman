@@ -5,26 +5,60 @@ using UnityEngine;
 
 public class BombSpawner : MonoBehaviour
 {
-   public GameObject bomb;
-   private  GameObject bombSpawnPosition;
+    public GameObject bomb;
+    private  GameObject bombSpawnPosition;
+    private Player player; 
+    public bool canSpawnBomb;
+    private void Start()
+    {
+        bombSpawnPosition = gameObject.transform.GetChild(0).gameObject;
+        player = GetComponent<Player>();
+        canSpawnBomb = true;
+    }
 
-   private void Start()
-   {
-      bombSpawnPosition = gameObject.transform.GetChild(0).gameObject;
-   }
+    private void Update()
+    {
+        
+        CreateBomb();
+    }
 
-   private void Update()
-   {
-      SpawnBomb();
-   }
+    void SpawnBomb()
+    {
+        
+            if (canSpawnBomb) 
+            {
+                CreateBomb();
+            }
+            
 
-   void SpawnBomb()
-   {
-      if (Input.GetKeyDown(KeyCode.Space))
-      {
-         Instantiate(bomb, new Vector3(Mathf.RoundToInt(bombSpawnPosition.transform.position.x),
-            Mathf.RoundToInt(bombSpawnPosition.transform.position.y),
-            Mathf.RoundToInt(bombSpawnPosition.transform.position.z)), Quaternion.identity);
-      }
-   }
+        
+    }
+
+    private void CreateBomb()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (player.bombCount >= 1)
+            {
+                player.bombCount -= 1;
+                Instantiate(bomb, new Vector3(Mathf.RoundToInt(bombSpawnPosition.transform.position.x),
+                    Mathf.RoundToInt(bombSpawnPosition.transform.position.y),
+                    Mathf.RoundToInt(bombSpawnPosition.transform.position.z)), Quaternion.identity);
+                canSpawnBomb = true;
+            }
+            else
+            {
+                canSpawnBomb = false;
+            }
+        }
+    }
+
+    public void ControlBomb(GameObject bomb)
+    {
+        if (!bomb.activeInHierarchy)
+        {
+            player.bombCount += 1;
+            canSpawnBomb = true;
+        }
+    }
 }

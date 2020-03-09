@@ -12,9 +12,21 @@
         <e p="Scripts" t="Include">
           <e p="Bomb.cs" t="Include" />
           <e p="BombSpawner.cs" t="Include" />
+          <e p="Character.cs" t="Include" />
+          <e p="DestroyableBlockScript.cs" t="Include" />
+          <e p="Enemy.cs" t="Include" />
           <e p="Map.cs" t="Include" />
           <e p="Player Script" t="Include">
+            <e p="Player.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
+          </e>
+          <e p="Powerup Scripts" t="Include">
+            <e p="Powerup.cs" t="Include" />
+            <e p="PowerupBomb.cs" t="Include" />
+            <e p="PowerupExplosion.cs" t="Include" />
+            <e p="PowerupHeart.cs" t="Include" />
+            <e p="PowerupSettings.cs" t="Include" />
+            <e p="PowerupSpeed.cs" t="Include" />
           </e>
           <e p="Spawner.cs" t="Include" />
           <e p="TileBlock.cs" t="Include" />
